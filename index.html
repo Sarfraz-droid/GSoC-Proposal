@@ -1,0 +1,688 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Code Labz </title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="795fba78-4b41-4cbc-a78b-9d0cf75363eb" class="page sans"><header><h1 class="page-title">Code Labz </h1></header><div class="page-body"><h3 id="f87ed4dc-63c3-4be3-ab44-fd806e989fa8" class="">Project Introduction</h3><p id="a2cc9baa-b766-4502-b403-674bc0ecd3e7" class="">CodeLabz is a platform for users and organisations to engage. It allows organisations to create tutorials and users can engage with the tutorials</p><h3 id="ac2c521a-6b8f-47fd-9dac-dde20c0f1518" class=""><strong>Project Goals</strong></h3><p id="194db9d1-aa76-42dd-b0a8-af7295d960b1" class="">In this project we will be : <div class="indented"><ul id="40b1a074-d7db-48d8-a6bc-543edafc24cb" class="bulleted-list"><li style="list-style-type:disc">Improving the Frontend of Codelabz Platform</li></ul><ul id="c4e77127-cf2d-47f3-99de-6b3a221d725a" class="bulleted-list"><li style="list-style-type:disc">Developing new features in CodeLabz Platform</li></ul><ul id="8933835b-9319-44f3-88f6-5d33292bbc94" class="bulleted-list"><li style="list-style-type:disc">Adding Testing and Documentation Features</li></ul></div></p><p id="fe5b0432-3ac6-4e53-912f-d3e0b779337f" class="">
+</p><h3 id="ac1f6bf5-18e4-42e2-8201-46e43c81a91b" class="">Implementation</h3><p id="e26a3a48-036b-4fee-81ce-9fb84c4a572f" class="">
+</p><p id="88b5b10f-5dec-4b27-9820-7e86f1e13920" class=""><em>Proposed UI :  </em><div class="indented"><p id="d51abb19-9210-4d1e-b044-8bf49ce3ff33" class="">
+</p><figure id="b04d352b-d964-4465-bcc9-f54d56d6957e" class="image"><a href="Code%20Labz%20b04d352bd9644465bcc9f54d56d6957e/Dashboard.png"><img style="width:1903px" src="Code%20Labz%20b04d352bd9644465bcc9f54d56d6957e/Dashboard.png"/></a></figure><p id="a7e1421c-a49e-43da-88d4-107fab8ffe68" class="">
+</p><figure id="6cce9108-6db9-4cb0-9984-9e57fbfffdf9" class="image"><a href="Code%20Labz%20b04d352bd9644465bcc9f54d56d6957e/Edit_Profile.png"><img style="width:1903px" src="Code%20Labz%20b04d352bd9644465bcc9f54d56d6957e/Edit_Profile.png"/></a></figure><p id="d04cd248-fecd-44d8-95c3-07be833d0ed4" class="">
+</p><figure id="a9d4ea4b-9f8e-4a39-af6a-f4d30f37c385" class="image"><a href="Code%20Labz%20b04d352bd9644465bcc9f54d56d6957e/Explore.png"><img style="width:1903px" src="Code%20Labz%20b04d352bd9644465bcc9f54d56d6957e/Explore.png"/></a></figure><figure id="da1d3743-47d4-443a-bd17-808fc7db7103" class="image"><a href="Code%20Labz%20b04d352bd9644465bcc9f54d56d6957e/Organisatioin.png"><img style="width:1903px" src="Code%20Labz%20b04d352bd9644465bcc9f54d56d6957e/Organisatioin.png"/></a></figure><figure id="69f8c267-a097-453c-be40-bcd55778f049" class="image"><a href="Code%20Labz%20b04d352bd9644465bcc9f54d56d6957e/Profile_-_General.png"><img style="width:1903px" src="Code%20Labz%20b04d352bd9644465bcc9f54d56d6957e/Profile_-_General.png"/></a></figure><p id="403b8054-dae5-42ff-af1a-2c346862d03f" class="">
+</p><p id="b25cc113-96eb-4b9f-ad07-574c5489abc1" class="">
+</p><p id="cf04f94b-ef2f-4013-b6ca-8604cab91433" class=""><strong>Deployed Storybook Link : </strong><a href="https://effulgent-banoffee-3c7300.netlify.app/">https://effulgent-banoffee-3c7300.netlify.app/</a></p><p id="6790c9cd-acb8-4da5-bd6a-1a3c8eaa1e13" class="">
+</p><p id="1520baaf-9cb1-4df4-87eb-8b785effef3c" class=""><strong>Suggestions : </strong><div class="indented"><ul id="eca601e7-6990-48c4-acc3-f11e4bad501b" class="bulleted-list"><li style="list-style-type:disc">Shifting Material UI v4 to v5<ul id="3385e2e7-7852-445f-8967-bd4858d468fd" class="bulleted-list"><li style="list-style-type:circle">v5 has more features, robust and customizable.</li></ul></li></ul><ul id="54c88667-d645-421b-af97-0c34831420cb" class="bulleted-list"><li style="list-style-type:disc">Remove unwanted files in the app (would help in a better code structure)</li></ul><ul id="7ed4133c-f3c4-4199-abd8-24a82a7ecd03" class="bulleted-list"><li style="list-style-type:disc">setup eslint, prettier, husky for better collaboration</li></ul></div></p><p id="928e4207-1086-4832-bdd0-660c916cf815" class="">
+</p></div></p><hr id="cc1ef6ee-7e45-48ac-95b7-37cd53f0019a"/><h3 id="7a77aab1-62b6-46b1-9d33-8da273eee81f" class="">Project Timeline</h3><p id="98141a1e-1fa3-495f-8a36-6028502df929" class="">
+</p><p id="e72862f3-5590-4c79-b1da-f408747cd534" class=""><strong>May 20 - June 12</strong><div class="indented"><ul id="e054118a-2d1b-4fb5-a96c-dd1119222c91" class="bulleted-list"><li style="list-style-type:disc">Do self-learning to familiarise with the techniques and purpose of the project.</li></ul><ul id="88ef5084-c518-47ca-8188-b2494a1c52e6" class="bulleted-list"><li style="list-style-type:disc">Study <a href="http://mui.com">mui.com</a> docs and firebase more in depth.</li></ul></div></p><p id="e518ff3c-2794-4e7e-8970-12524a7abc1b" class=""><strong>June 12 - July 25</strong><div class="indented"><ul id="cfd60d21-3651-4bef-bed9-cd47e55cfd4b" class="bulleted-list"><li style="list-style-type:disc">Implementing New UI deisgn system for Codelabz in storybook</li></ul><ul id="19172bb7-6c58-44a0-b0d0-d494ad24622a" class="bulleted-list"><li style="list-style-type:disc">Re-creating older pages. Enhancing the UI</li></ul><p id="2ac2f8e0-fe2e-4f36-b5fb-5397289d5dac" class=""><strong>June 12 - 19</strong><div class="indented"><ul id="585b3fd2-168a-49ea-9b32-8f0e07797e5b" class="bulleted-list"><li style="list-style-type:disc">Designing and Implementing new design system for Codelabz, (storybook)</li></ul></div></p><p id="82fed7df-f9c9-4008-b871-2610d24e8a4b" class=""><strong>June 19 - 26</strong><div class="indented"><ul id="cad97579-c5f4-4869-ae33-feb6f4c6f411" class="bulleted-list"><li style="list-style-type:disc">Finalising the new design and completing Codelabz storybook design system</li></ul></div></p><p id="04f7fd85-d74e-4766-aee4-d2726d40541d" class=""><strong>June 26 - 25 July</strong><div class="indented"><ul id="9acf406c-a01b-4524-9993-8a4445a0d5ae" class="bulleted-list"><li style="list-style-type:disc">Working on the old pages, designing and building better and robust UI.</li></ul><ul id="02f6338f-4fe3-463f-b0b5-69988cf0b7a9" class="bulleted-list"><li style="list-style-type:disc">Setting up tests for the app</li></ul></div></p></div></p><p id="63b3f38f-f8b7-4942-86ca-1b07213aaf23" class="">
+</p><p id="097810c9-2c7c-426b-886f-5041bd14efe6" class=""><strong>July 25 - September 4</strong> <div class="indented"><ul id="f0890eed-099d-4786-a404-27da1cbc117b" class="bulleted-list"><li style="list-style-type:disc">Implementing Pages for Codelabz.</li></ul><ul id="e27d7d36-8333-440c-8b91-6652f1152368" class="bulleted-list"><li style="list-style-type:disc">Making the features functional (i.e. fixing unresponsive buttons and features)</li></ul><ul id="a04a08aa-f597-402f-9dfb-dbd1566ad986" class="bulleted-list"><li style="list-style-type:disc">Fixing bugs within the app</li></ul><ul id="19cddc60-9d22-49ed-bb0b-52c436f8d941" class="bulleted-list"><li style="list-style-type:disc">Working on Codelabz documentation</li></ul><p id="dcb37880-967b-45a3-be0d-06cfa92f2598" class=""><div class="indented"><p id="c1a8034c-4db9-4182-a826-88cd1dd3980c" class=""><strong>July 25 - July 31</strong><div class="indented"><ul id="cb41fa6f-c640-49b8-9c40-f32dc6cc4125" class="bulleted-list"><li style="list-style-type:disc">Implementing Pages/bugs in Codelabz.</li></ul></div></p><p id="8fa8ad21-1996-4dde-89f7-8c4318fdc5da" class=""><strong>1 August - 8 August</strong><div class="indented"><ul id="ebd5672a-a987-4997-b2ef-b89629751e9f" class="bulleted-list"><li style="list-style-type:disc">Making the features functional (i.e. fixing unresponsive buttons and features)</li></ul></div></p><p id="5c838811-7611-4500-85f7-e8becadf6124" class=""><strong>8 August - 15 August</strong><div class="indented"><ul id="ab0443d0-59f9-4f0b-b948-c2744399a760" class="bulleted-list"><li style="list-style-type:disc">Working on Codelabz documentation</li></ul></div></p><p id="342509a7-4206-4bec-ab17-aaadaba3f49c" class=""><strong>15 August - 4 September</strong><div class="indented"><ul id="56d0f0b3-a67e-4870-a207-0a8d8e737094" class="bulleted-list"><li style="list-style-type:disc">Final Testing of the app</li></ul><ul id="216670fa-e50c-403f-b585-0bf300d0f786" class="bulleted-list"><li style="list-style-type:disc">Fixing bugs, if any.</li></ul><ul id="558dbf7d-7bb8-4546-9edd-b7ffafdc924d" class="bulleted-list"><li style="list-style-type:disc">Building final report</li></ul></div></p></div></p></div></p><hr id="b07d4a7f-f811-45ea-ac30-11f0ceaa20c6"/><h3 id="03696d8a-aa8e-4f2a-977a-2d6474a9eccf" class=""><strong>SCoRe Contributions</strong></h3><p id="5097d50e-7bec-401c-9257-b4426eb855ce" class="">
+</p><p id="a7109b8d-7aec-4515-b550-935f45e65f41" class=""><strong>CodeLabz</strong><div class="indented"><figure id="b05e42d4-08b6-48dd-86e2-6eddeaf10a4f"><div class="source">https://github.com/scorelab/Codelabz/pull/192</div></figure></div></p><p id="b7a7185c-89ea-44bb-8b80-dce74796ac95" class=""><strong>WebIU</strong><div class="indented"><figure id="f1e0d530-b5b0-4960-8865-37d83180ed26"><div class="source">https://github.com/scorelab/Webiu/issues/210</div></figure><p id="e3b26ffa-0c1d-4e4c-a2db-50801505ac2a" class="">
+</p></div></p><hr id="2fac5120-3df4-4080-b7d0-5df65c9c9c3d"/><h3 id="fd098e2d-86c6-4981-81e2-77f155b590db" class=""><strong>Personal Information</strong></h3><ul id="83486e78-ba82-4e87-bb7a-6d96617ae0a0" class="bulleted-list"><li style="list-style-type:disc"><strong>Name : </strong>Mohammad Sarfraz Alam</li></ul><ul id="2634bd65-b7ac-41e0-b81a-0254861dc91a" class="bulleted-list"><li style="list-style-type:disc"><strong>University: </strong>Jamia Millia Islamia</li></ul><ul id="ae60863e-8ecc-482b-b000-2b9aab5f0473" class="bulleted-list"><li style="list-style-type:disc"><strong>Email: </strong>alamsarfraz422@gmail.com</li></ul><ul id="01c99183-18ac-4c78-b443-66a9661fdd4e" class="bulleted-list"><li style="list-style-type:disc"><strong>Telephone: </strong>+91 73034 35034</li></ul><ul id="906f1805-2fc7-47b1-a6b6-94ec9ccd4959" class="bulleted-list"><li style="list-style-type:disc"><strong>Country of Residence:</strong> India</li></ul><ul id="4b9405b1-3349-47b6-b830-ab0612970f03" class="bulleted-list"><li style="list-style-type:disc"><strong>Timezone: </strong>IST (GMT + 0530)</li></ul><ul id="ae35829a-e733-49dd-96db-9759818bb7a6" class="bulleted-list"><li style="list-style-type:disc"><strong>Primary Language:</strong> English</li></ul><p id="128f79f6-b066-4830-839e-ad0a4c9a5802" class="">
+</p><p id="2dbfa84d-1cba-4b3a-99c6-6bf611669c0f" class="">I’m a <strong>2nd year</strong> student persuing <a href="http://B.Tech">B.Tech</a> in <strong>Electronics and Communication Engineering</strong>. My Semester will be in online mode so I will get enough time to work on my GSOC project. If I am selected, I shall be able to work around 40 hrs a week on the project.</p><p id="76acd14d-1816-4284-9e30-46c83a9fa1f3" class="">
+</p><p id="40b51c2a-e25d-4a35-a866-ec789763e067" class=""><strong>Some of my Open Source Projects so Far have been :</strong></p><p id="37be1574-b38e-45f4-9142-6e5c5a5f30fd" class="">
+</p><p id="3c9728e3-d517-4868-aa6a-103c0301280b" class=""><strong>React Image Filters</strong></p><p id="df59602a-7024-4200-b523-97be5d0d163e" class=""><a href="https://github.com/Sarfraz-droid/react-image-filters"><strong><strong>react-image-filters</strong></strong></a><strong><strong></strong></strong></p><p id="11314f0d-41f6-42f7-a0d9-b81b833f480c" class="">I created a react filters npm package that helps developers to add multiple image filters in easily.</p><p id="14701e91-9c3b-4a06-a4da-0a5d0155dde2" class="">I have also created a <a href="https://sarfraz-droid.github.io/react-image-filters">storybook</a> website for the documentation including CI/CD workflows</p><p id="9fb4bebf-5b1d-4f43-9239-34c329261535" class=""><strong>Stack</strong></p><p id="45a8f5d5-9f15-43e7-9cb6-a2636530c683" class="">Typescript, React</p><hr id="71647634-3f4c-4bad-afec-7b5ed483e5ba"/><p id="1b982c72-c1c5-4646-b0fa-1d0fcfe4321b" class=""><strong>CampusCircle</strong></p><p id="7678eaaf-ee1d-4981-b2c0-6bfbdbf2dfd1" class=""><a href="https://github.com/Campus-Circle">https://github.com/Campus-Circle</a></p><p id="bfee58de-d7b8-4cef-821a-c31494b5b516" class=""><a href="https://campuscircle.social/">Web Link</a></p><p id="839e2c91-00da-47a3-b635-c04b6ce9e6b8" class="">It’s an opensource repository for all the notes, syllabus, courses and placement stats. It also allows users to use it as a template to create their own campuscircle for their college</p><p id="ba7cee8e-a6c0-4dfa-978b-c8e3765c15c8" class=""><strong>Stack</strong></p><p id="ba074480-b816-4ade-84a0-3adf502dbed4" class="">Nextjs, Nodejs, Javascript</p><hr id="30257e63-f106-44f8-80e2-cde9322324ad"/><p id="9f4a78dc-fdc0-4360-91ba-d0af6ca2dabf" class=""><strong>CertDealer</strong></p><p id="585017b7-f61e-425b-bd48-fd478da111d4" class=""><a href="https://share.streamlit.io/sarfraz-droid/certdealer2.0/main/index.py">Web Link</a></p><p id="94bcd60c-6747-4c4b-b1ab-0028ee224387" class="">Streamlit app to allow users to generate bulk certificates, user can customize their certificates, download all of them or mail the certificates to the participants.</p><p id="05a37fef-fe8c-4358-9ea7-5f3ffd6cfff7" class="">Currently configured for certificate generation in my society.</p><hr id="7ceb92f5-fdab-4038-88ea-0a13b7c638ec"/><h3 id="57d4dd95-a0e6-483c-b86b-fdb1b9958c0f" class=""><strong>Reference</strong></h3><p id="03c1b3d2-dc63-408f-acb0-7d308297c15b" class="">    <strong>Project reference</strong><div class="indented"><p id="2f8da4d8-463f-4cd5-aeb2-6d5ed225af2c" class="">   <strong>Questions</strong><div class="indented"><p id="e9e01dc3-fc44-4eca-8c0f-826f467fd2f1" class="">1. Are you a SCoRe contributor/ Have you contributed to SCoRe before?<div class="indented"><p id="257deeae-f99b-4e4a-8dee-2a42027c32fb" class="">Yes</p></div></p><p id="fc1514e3-0a34-4e52-aa99-4e96dc3e8f98" class="">2. How can we reach you (eg: email) if we have questions about your application?<div class="indented"><p id="4f9b3da1-2eba-4c67-9c38-11177d2ec924" class=""><strong>alamsarfraz422@gmail.com</strong></p></div></p><p id="a5b906ed-88c8-43d1-b64d-fdc6fe7ff06f" class="">3. What is your github username(s): <strong>Sarfraz-droid</strong></p><p id="3a35a582-8b13-4c8e-9a5b-3a3980755f4a" class="">
+</p></div></p></div></p><p id="f8951d88-520d-4913-b7ae-0a909dfea66c" class=""><strong>Project Specific Questions</strong><div class="indented"><p id="441b30cc-c003-4ff2-8e2a-f3e0f0ce8f08" class="">4. Which SCoRe GSoC project are you applying for (please submit separate applications for each project): <div class="indented"><p id="19dcaf82-11b6-4c6a-b6b8-1882e3e02d6e" class=""><strong>CodeLabz</strong></p></div></p><p id="f0d7f164-d6b2-4646-8a17-45cc4027cdee" class="">5. What do you plan to accomplish over this summer for this project? <div class="indented"><p id="0dd2e9ad-cc06-42b6-97f0-4e9c653207ef" class="">I want to work on Codelabz on my summer project. I really liked the concept and would love to contribute to this project.</p><p id="fd3be361-d0e0-41fa-99c5-5850319a57c1" class="">I’ll work on weekly todo tasks and updates, I would set weekly milestones, talk to my mentors and complete the project</p></div></p><p id="4565937a-79f5-4066-a1f8-bbd142d376b5" class="">7. List down any plans you have during this summer.<div class="indented"><p id="849e8c8d-0ca4-4669-9c01-586cf8b70c52" class="">I would have my exams in the month of May, which doesn’t really clash with the GSOC timeline but might be have to start a bit slowly if exams are in May-end.</p></div></p><p id="705328e5-7b6e-42f4-9a85-e524bde08f1e" class="">8. Education:<div class="indented"><ol type="1" id="0addb391-3265-4f18-b941-ffc97540c044" class="numbered-list" start="1"><li>What year are you in school? <strong>2nd Year</strong></li></ol><ol type="1" id="6607d385-bd54-474e-8e33-e2a7cecddcf2" class="numbered-list" start="2"><li>What is your major? <strong>Electronics and Communication Engineering</strong></li></ol><ol type="1" id="57794b39-d54f-4ff0-bd0b-f30f0739a22b" class="numbered-list" start="3"><li>Have you done group projects (programming or otherwise)?<p id="cf1fff93-b360-4261-ba3b-07e8267c9466" class="">Yes, I worked as Team head in Eyantra Robotics Competition. We had to split the tasks accordingly on persons interests/skills and finally create a robot.</p><p id="71441b86-c7f9-42e6-bf10-f1838c406ad2" class="">I also worked a project development team for an app in my college</p></li></ol></div></p><p id="92e2edc7-114a-4582-bc93-6cc0f2a13d65" class="">9. Tell one interesting fact about yourself.<div class="indented"><p id="7560dd23-4cb8-4654-82a4-a5869d9f9ed2" class="">I don’t really like talking very professionally in team. Although I have to talk in a professional setting but I just prefer talking casually with anyone, just feels easy to convey opinions and ideas.</p></div></p><p id="ea777e24-768e-41ca-8a23-a06ffd4ae9cc" class="">
+</p><p id="a5c27dec-f62a-483c-a490-b1b992d03671" class="">
+</p></div></p></div></article></body></html>
